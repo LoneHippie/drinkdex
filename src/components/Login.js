@@ -44,7 +44,7 @@ const Login = () => {
             }
 
             //reset window
-            window.location.reload();
+            // window.location.reload();
 
         } catch (err) {
             console.log(err);

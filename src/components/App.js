@@ -14,14 +14,7 @@ import Navbar from './Navbar';
     Notes: 
 
     7/4/21 - Make createdBy[0] refresh when user changes usernames
-
-    9/4/21 - Only thing left to do is impliment file saving
-        -try creating new model / collection for saving uploaded files (images)
-        -use referencing between drink id and image id
-    9/4/21 - After finishing this, figure out how to host website for media query testing
-
-    10/4/21 - CAN NOW SERVE STATIC FILES
-        -use src="/images/filename"
+    
 */////////
 
 const App = () => {
@@ -35,7 +28,7 @@ const App = () => {
     //on load check for valid jwt and retrieve user data
     useEffect(() => {
         fetch('https://drinkdex.herokuapp.com/api/v1/users/me', {
-            credentials: 'same-origin' //THIS IS HOW YOU DETECT HTTPONLY COOKIE, FUCK YEAH
+            credentials: 'same-origin'
         })
             .then(res => res.ok ? res.json() : res)
             .then(resJson => {
