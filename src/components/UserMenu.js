@@ -276,7 +276,7 @@ const UserMenu = (props) => {
     //log out the current user and refresh (working)
     async function logoutUser() {
         try {
-            const result = await fetch('/api/v1/users/logout', {
+            const result = await fetch('api/v1/users/logout', {
                 method: 'post'
             });
 

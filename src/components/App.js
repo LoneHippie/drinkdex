@@ -34,7 +34,7 @@ const App = () => {
 
     //on load check for valid jwt and retrieve user data
     useEffect(() => {
-        fetch('/api/v1/users/me', {
+        fetch('api/v1/users/me', {
             credentials: 'same-origin' //THIS IS HOW YOU DETECT HTTPONLY COOKIE, FUCK YEAH
         })
             .then(res => res.ok ? res.json() : res)
@@ -54,7 +54,7 @@ const App = () => {
     }, []);
 
     async function refreshUser() {
-        fetch('/api/v1/users/me', {
+        fetch('api/v1/users/me', {
             credentials: 'same-origin' //THIS IS HOW YOU DETECT HTTPONLY COOKIE, FUCK YEAH
         })
             .then(res => res.ok ? res.json() : res)
@@ -76,7 +76,7 @@ const App = () => {
     //initial fetch of data for drinks and randomDrink
     useEffect(() => {
         //fetch all drinks
-        fetch('/api/v1/drinks')
+        fetch('api/v1/drinks')
             .then(res => res.json())
             .then(resJson => resJson.data.data)
             .then(allDrinks => {
