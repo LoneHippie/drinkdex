@@ -51,8 +51,6 @@ const SignUp = () => {
 
             const response = await result.json();
 
-            console.log(response);
-
             if (response.status === 'error') {
                 console.log('Sign up failed, please check info');
                 return;
