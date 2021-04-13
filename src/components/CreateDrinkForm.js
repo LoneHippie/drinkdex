@@ -280,7 +280,7 @@ const CreateDrinkForm = (props) => {
             formData.append('drinkImage', formImage);
 
             //upload image and return file path for new drink
-            const imageRes = await fetch('api/v1/images', {
+            const imageRes = await fetch('https://drinkdex.herokuapp.com/api/v1/images', {
                 method: 'post',
                 body: formData
             });
@@ -314,7 +314,7 @@ const CreateDrinkForm = (props) => {
             };
 
             //create new drink with drinkBody
-            let newDrink = await fetch('api/v1/drinks', {
+            let newDrink = await fetch('https://drinkdex.herokuapp.com/api/v1/drinks', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',

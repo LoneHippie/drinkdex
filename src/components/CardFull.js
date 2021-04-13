@@ -44,7 +44,7 @@ const CardFull = (props) => {
     };
 
     const coverImage = () => {
-        return drink && drink?.coverImage !== undefined ? <img className="card-image" src={drink.coverImage} alt="cocktail"></img> : <img className="card-image" src="https://media.istockphoto.com/vectors/alcohol-cocktail-drink-vector-neon-icon-food-blue-neon-illustration-vector-id1215989223?k=6&m=1215989223&s=170667a&w=0&h=wORytj0B6AzIiEDvf-5lCwTqw_i_3J6ASZPP9LkfE6s=" alt="cocktail placeholder"></img>;
+        return drink && drink?.coverImage !== undefined ? <img className="card-image" src={`https://drinkdex.herokuapp.com/${drink.coverImage}`} alt="cocktail"></img> : <img className="card-image" src="https://media.istockphoto.com/vectors/alcohol-cocktail-drink-vector-neon-icon-food-blue-neon-illustration-vector-id1215989223?k=6&m=1215989223&s=170667a&w=0&h=wORytj0B6AzIiEDvf-5lCwTqw_i_3J6ASZPP9LkfE6s=" alt="cocktail placeholder"></img>;
     };
 
     const isAuthor = () => {
@@ -74,7 +74,7 @@ const CardFull = (props) => {
         e.preventDefault();
         try {
             if (drink?.imageId !== undefined) { //delete image ref in db, doesn't delete file
-                fetch(`api/v1/images/${drink.imageId}`, {
+                fetch(`https://drinkdex.herokuapp.com/api/v1/images/${drink.imageId}`, {
                     method: 'DELETE'
                 });
             }

@@ -29,7 +29,7 @@ const SaveButton = (props) => {
 
         try {
             setTimeout(() => {
-                fetch(`api/v1/users/${route}/${drink}`, { 
+                fetch(`https://drinkdex.herokuapp.com/api/v1/users/${route}/${drink}`, { 
                     method: 'PATCH'
                 })
                 .then(res => {

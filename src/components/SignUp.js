@@ -35,7 +35,7 @@ const SignUp = () => {
                 return setAuthMessage('*Password does not match confirmation');
             };
 
-            let result = await fetch('api/v1/users/signup', {
+            let result = await fetch('https://drinkdex.herokuapp.com/api/v1/users/signup', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',

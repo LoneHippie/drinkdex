@@ -21,7 +21,7 @@ const Login = () => {
     async function submitLogin(e) {
         e.preventDefault();
         try {
-            let result = await fetch('api/v1/users/login', {
+            let result = await fetch('https://drinkdex.herokuapp.com/api/v1/users/login', {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',

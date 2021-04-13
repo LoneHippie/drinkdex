@@ -28,7 +28,7 @@ const CardMini = (props) => {
             // style={{background: `${drink.coverImage === undefined ? imageFallback : `url(${drink.coverImage})`}`}}
         >
 
-            <img className="card__mini--image" src={drink.coverImage === undefined ? imageFallback : drink.coverImage} alt="minified card background"></img>
+            <img className="card__mini--image" src={drink.coverImage === undefined ? imageFallback : `https://drinkdex.herokuapp.com/${drink.coverImage}`} alt="minified card background"></img>
 
             <span className="card__mini--name">{drink.name}</span>
 

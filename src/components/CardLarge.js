@@ -10,7 +10,7 @@ const CardLarge = (props) => {
     const { user, randomDrink, id, openFull, refreshUser } = props;
 
     const coverImage = () => {
-        return randomDrink && randomDrink?.coverImage !== undefined ? `${randomDrink.coverImage}` : "https://media.istockphoto.com/vectors/alcohol-cocktail-drink-vector-neon-icon-food-blue-neon-illustration-vector-id1215989223?k=6&m=1215989223&s=170667a&w=0&h=wORytj0B6AzIiEDvf-5lCwTqw_i_3J6ASZPP9LkfE6s=";
+        return randomDrink && randomDrink?.coverImage !== undefined ? `https://drinkdex.herokuapp.com/${randomDrink.coverImage}` : "https://media.istockphoto.com/vectors/alcohol-cocktail-drink-vector-neon-icon-food-blue-neon-illustration-vector-id1215989223?k=6&m=1215989223&s=170667a&w=0&h=wORytj0B6AzIiEDvf-5lCwTqw_i_3J6ASZPP9LkfE6s=";
     };
 
     const isAuthor = () => {

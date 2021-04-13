@@ -235,7 +235,7 @@ const UserMenu = (props) => {
             let update;
 
             if (activeForm !== 'password') {
-                update = await fetch('api/v1/users/updateMe', {
+                update = await fetch('https://drinkdex.herokuapp.com/api/v1/users/updateMe', {
                     method: 'PATCH',
                     headers: {
                         'Accept': 'application/json',
@@ -244,7 +244,7 @@ const UserMenu = (props) => {
                     body: JSON.stringify(bodyObj)
                 });
             } else {
-                update = await fetch('api/v1/users/updateMyPassword', {
+                update = await fetch('https://drinkdex.herokuapp.com/api/v1/users/updateMyPassword', {
                     method: 'PATCH',
                     headers: {
                         'Accept': 'application/json',
@@ -276,7 +276,7 @@ const UserMenu = (props) => {
     //log out the current user and refresh (working)
     async function logoutUser() {
         try {
-            const result = await fetch('api/v1/users/logout', {
+            const result = await fetch('https://drinkdex.herokuapp.com/api/v1/users/logout', {
                 method: 'post'
             });
 
