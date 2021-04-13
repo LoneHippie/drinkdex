@@ -35,8 +35,6 @@ const Login = () => {
 
             const response = await result.json();
 
-            console.log(response);
-
             if (response.status === 'fail') {
                 return setAuthMessage(`*${response.message}`);
             } else {
@@ -44,7 +42,7 @@ const Login = () => {
             }
 
             //reset window
-            // window.location.reload();
+            window.location.reload();
 
         } catch (err) {
             console.log(err);
