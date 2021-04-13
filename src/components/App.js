@@ -28,7 +28,7 @@ const App = () => {
     //on load check for valid jwt and retrieve user data
     useEffect(() => {
         fetch('https://drinkdex.herokuapp.com/api/v1/users/me', {
-            credentials: 'same-origin'
+            credentials: 'include'
         })
             .then(res => res.ok ? res.json() : res)
             .then(resJson => {
@@ -48,7 +48,7 @@ const App = () => {
 
     async function refreshUser() {
         fetch('https://drinkdex.herokuapp.com/api/v1/users/me', {
-            credentials: 'same-origin' //THIS IS HOW YOU DETECT HTTPONLY COOKIE, FUCK YEAH
+            credentials: 'include' //THIS IS HOW YOU DETECT HTTPONLY COOKIE, FUCK YEAH
         })
             .then(res => res.ok ? res.json() : res)
             .then(resJson => {

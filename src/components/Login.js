@@ -36,7 +36,7 @@ const Login = () => {
             const response = await result.json();
 
             if (response.status === 'fail') {
-                return setAuthMessage(`*${response.message}`);
+                return setAuthMessage(`*Email or password is incorrect`);
             } else {
                 setAuthMessage('Login successful!');
             }
