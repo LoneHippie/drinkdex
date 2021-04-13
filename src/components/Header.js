@@ -22,7 +22,7 @@ const Header = (props) => {
                             className="header__profile--close"
                             id="nav-close"
                             onClick={() => closeMenu()}
-                            src="images/icons/cancel.svg"
+                            src="https://drinkdex.herokuapp.com/images/icons/cancel.svg"
                             alt="close profile options"
                         >
                         </img>
@@ -36,7 +36,7 @@ const Header = (props) => {
                             className="header__profile--btn"
                             id="nav-login"
                             onClick={() => openMenu()}
-                            src="images/icons/user.svg"
+                            src="https://drinkdex.herokuapp.com/images/icons/user.svg"
                             alt="user profile options"
                         >
                         </img>
@@ -53,7 +53,7 @@ const Header = (props) => {
                         className="header__profile--guest" 
                         id="nav-login"
                         onClick={() => openAuthenticate()}
-                        src="images/icons/question.svg"
+                        src="https://drinkdex.herokuapp.com/images/icons/question.svg"
                         alt="guest profile icon"
                     >
                     </img>

@@ -79,7 +79,7 @@ const CardFull = (props) => {
                 });
             }
 
-            fetch(`api/v1/drinks/${id}`, {
+            fetch(`https://drinkdex.herokuapp.com/api/v1/drinks/${id}`, {
                 method: 'DELETE'
             })
             .then(() => {

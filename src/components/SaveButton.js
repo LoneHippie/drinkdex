@@ -58,7 +58,7 @@ const SaveButton = (props) => {
         if (user === undefined) {
             return <img
                         className={`${className}--btn-save inactive`} 
-                        src="images/icons/heart-disabled.svg"
+                        src="https://drinkdex.herokuapp.com/images/icons/heart-disabled.svg"
                         alt="save drink button"
                     >
                     </img>
@@ -66,7 +66,7 @@ const SaveButton = (props) => {
             if (isAuthor) {
                 return <img 
                             className={`${className}--btn-save author`}
-                            src="images/icons/signature.svg"
+                            src="https://drinkdex.herokuapp.com/images/icons/signature.svg"
                             alt="creator of drink icon"
                         >
                         </img>
@@ -74,7 +74,7 @@ const SaveButton = (props) => {
                 return <img
                             className={`${className}--btn-save favorited`}
                             onClick={(e) => saveDrink(e)}
-                            src="images/icons/heart-full.svg"
+                            src="https://drinkdex.herokuapp.com/images/icons/heart-full.svg"
                             alt="save drink button"
                         >
                         </img>
@@ -83,7 +83,7 @@ const SaveButton = (props) => {
                     <img
                         className={`${className}--btn-save active`}
                         onClick={(e) => saveDrink(e)}
-                        src="images/icons/heart-empty.svg"
+                        src="https://drinkdex.herokuapp.com/images/icons/heart-empty.svg"
                         alt="save drink button"
                     >
                     </img>

@@ -21,7 +21,7 @@ const Navbar = (props) => {
                     className="navbar__option--icon" 
                     id="btn-categories" 
                     onClick={(e) => openOption(e)} 
-                    src="images/icons/cocktail.svg" 
+                    src="https://drinkdex.herokuapp.com/images/icons/cocktail.svg" 
                     alt="drink categories"
                 ></img>
                 <span className="navbar__option--label" htmlFor="btn-categories">Categories</span>
@@ -31,7 +31,7 @@ const Navbar = (props) => {
                     className="navbar__option--icon" 
                     id="btn-spirits" 
                     onClick={(e) => openOption(e)} 
-                    src="images/icons/glass.svg" 
+                    src="https://drinkdex.herokuapp.com/images/icons/glass.svg" 
                     alt="drink spirits"
                 ></img>
                 <span className="navbar__option--label" htmlFor="btn-spirits">Spirits</span>
@@ -41,7 +41,7 @@ const Navbar = (props) => {
                     className={`navbar__option--icon ${activeStatus()}`} 
                     id="btn-create" 
                     onClick={(e) => openOption(e)} 
-                    src={user ? "images/icons/recipe.svg" : "images/icons/recipe-disabled.svg"} 
+                    src={user ? "https://drinkdex.herokuapp.com/images/icons/recipe.svg" : "https://drinkdex.herokuapp.com/images/icons/recipe-disabled.svg"} 
                     alt="crete a new drink"
                 ></img>
                 <span className={`navbar__option--label ${activeStatus()}`} htmlFor="btn-create">Create</span>

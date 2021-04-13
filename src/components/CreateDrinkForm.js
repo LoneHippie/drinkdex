@@ -136,7 +136,7 @@ const CreateDrinkForm = (props) => {
                         <img 
                             id={el} 
                             key={`results-btn-${index}`}
-                            src="images/icons/plus.svg"
+                            src="https://drinkdex.herokuapp.com/images/icons/plus.svg"
                             alt="add ingredient button"
                             onClick={(e) => formHandlers.changeAddIngredient(e)}
                         >
@@ -219,7 +219,7 @@ const CreateDrinkForm = (props) => {
                     index === formInstructions.length -1 ? (
                         <>
                             <img 
-                                src="images/icons/plus.svg"
+                                src="https://drinkdex.herokuapp.com/images/icons/plus.svg"
                                 alt="add instructions button"
                                 onClick={() => formHandlers.changeAddInstruction()}
                             >

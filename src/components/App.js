@@ -84,7 +84,7 @@ const App = () => {
                 setDrinks(allDrinks);
                 //get random id from drinks and query it
                 let random = Math.floor(Math.random() * allDrinks.length);
-                return fetch(`/api/v1/drinks/${allDrinks[random].id}`);
+                return fetch(`https://drinkdex.herokuapp.com/api/v1/drinks/${allDrinks[random].id}`);
             })
             .then(res => res.json())
             .then(resJson => setRandomDrink(resJson.data.data));

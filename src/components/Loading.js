@@ -14,7 +14,7 @@ const Loading = () => {
                 <div>
                     <img
                         className="sign-container--image"
-                        src="images/icons/shaker.svg"
+                        src="https://drinkdex.herokuapp.com/images/icons/shaker.svg"
                         alt="cocktail shaker vector"
                     ></img>
                 </div>
