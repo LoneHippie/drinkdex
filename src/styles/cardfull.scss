@@ -1,0 +1,310 @@
+@import 'variables';
+@import 'mixins';
+
+.cardfull {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none; //js to toggle to flex
+    height: 100%;
+    width: 100vw;
+    margin-top: 10rem;
+    padding-bottom: 23rem;
+
+    background: $color-black;
+
+    animation: popUpCard 250ms ease-out;
+
+    z-index: 500;
+}
+
+.cardfull__header {
+    width: 100%;
+    height: 10%;
+
+    &--name {
+        font-size: 5rem;
+        letter-spacing: 0.3rem;
+        text-transform: capitalize;
+        text-align: center;
+        font-weight: 700;
+        margin: 0 2.5rem;
+        margin-top: 3rem;
+    }
+
+    &--close {
+        font-size: 4rem;
+        font-weight: 700;
+        color: rgba($color-text, 0.6);
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1.75rem;
+        padding-top: 1rem;
+    }
+}
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+    height: 90%;
+
+    &__display {
+        position: relative;
+        width: 44%;
+        background: rgba($color-text, 0.3);
+        border-radius: 0px 10px 0 0px;
+        background: rgba($color-black, 0.8);
+    }
+
+    &__info {
+        width: 56%;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    &--author {
+        display: inline-block;
+        color: rgba($color-text, 0.8);
+        font-size: 3rem;
+        margin-left: 3rem;
+        padding-top: 0.5rem;
+    }
+
+    &--delete {
+        @include button;
+        font-size: 2.5rem;
+        display: block;
+        margin: 0 auto;
+        margin-top: 2rem;
+    }
+
+    &--delete-confirmation {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100vw;
+        margin-top: 10rem;
+        padding-bottom: 23rem;
+        background: rgba($color-black, 0.98);
+
+        animation: popUpCard 500ms ease-in-out;
+
+        z-index: 2000;
+
+        &--center {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+
+            & > span {
+                display: block;
+                font-size: 8rem;
+                font-family: $font-secondary;
+                font-weight: 500;
+                filter: drop-shadow(0px 0px 12px $color-primary);
+                -webkit-text-stroke: 1px $color-primary;
+                text-align: center;
+                margin-bottom: 5rem;
+            }
+
+        }
+
+        &--center-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 0 auto;
+            width: 75%;
+
+            & > button {
+                @include button;
+                min-width: 15rem;
+            }
+        }
+
+        &--confirm {
+            background: $color-primary-light !important;
+            color: $color-text !important;
+
+            animation: neonGlow 3000ms infinite;
+        }
+
+    }
+}
+
+.card-image {
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem;
+    height: 47%;
+    width: 90%;
+    border: 2px solid $color-primary;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0px 0px 18px 5px rgba($color-primary-light, 0.4);
+}
+
+.card-tag-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-around;
+    grid-auto-flow: row;
+    grid-gap: 1.5rem;
+
+    margin-top: 0rem;
+    padding: 2.5rem 2rem;
+
+
+    &--tag {
+        display: inline-block;
+        text-transform: capitalize;
+        font-size: 2.5rem;
+        background: $color-primary;
+        color: $color-text;
+        padding: 0.65rem 1.2rem;
+        border-radius: 10px;
+        margin-bottom: 0.2rem;
+    }
+}
+
+.card-save--btn-save {
+    height: 8rem;
+    padding: 0.1rem;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1rem;
+
+    &.author {
+        height: 6rem !important;
+    }
+    &.favorited {
+        filter: drop-shadow(0px 0px 12px rgba($color-primary, 0.8));
+
+        &.pending {
+            color: magenta !important;
+            pointer-events: none !important;
+        }
+    }
+}
+
+.card-summary--title {
+    margin-left: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 4rem;
+}
+
+.card-summary-container {
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+    line-height: 3.4rem;
+    border-radius: 5px;
+    background: rgba($color-black, 0.8);
+
+    border: 2px solid $color-primary;
+    box-shadow: 0px 0px 12px 2.5px rgba($color-primary-light, 0.3);
+
+    &--summary {
+        font-size: 2.5rem;
+        color: rgba($color-text, 0.8);
+    }
+}
+
+
+.card-ingredients--title {
+    margin-left: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 4rem;
+}
+
+.card-ingredients-container {
+    padding-left: 4rem;
+    padding-right: 0.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    background: rgba($color-black, 0.8);
+    border-radius: 5px;
+    margin-bottom: 2rem;
+
+    border: 2px solid $color-primary;
+    box-shadow: 0px 0px 12px 2.5px rgba($color-primary-light, 0.3);
+
+    &__list {
+        list-style-type: circle;
+        font-size: 2.5rem;
+
+        & > li {
+            margin-bottom: 1rem;
+            text-transform: capitalize;
+            color: rgba($color-text, 0.8);
+        }
+    }
+}
+
+
+.card-instructions--title {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 4rem;
+}
+
+.card-instructions-container {
+    padding-left: 4rem;
+    padding-right: 0.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    background: rgba($color-black, 0.8);
+    border-radius: 5px;
+    margin-bottom: 2.5rem;
+
+    border: 2px solid $color-primary;
+    box-shadow: 0px 0px 12px 2.5px rgba($color-primary-light, 0.3);
+
+    &__list {
+        list-style-type: decimal;
+        font-size: 2.5rem;
+
+        & > li {
+            margin-bottom: 1rem;
+            color: rgba($color-text, 0.8);
+        }
+    }
+}
+
+@keyframes popUpCard {
+    0% {
+        transform: translateY(100rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0px 0px 14px 2px rgba($color-primary-light, 0.4);
+    }
+    50% {
+        box-shadow: 0px 0px 18px 6px rgba($color-primary-light, 0.4);
+    }
+    100% {
+        box-shadow: 0px 0px 14px 2px rgba($color-primary-light, 0.4);
+    }
+}

@@ -1,0 +1,20 @@
+@import "variables";
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+} 
+
+html { //starting mobile, going up
+    font-size: 45%;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: $color-black;
+    color: $color-text;
+    font-family: $font-secondary;
+    // margin-left: 5rem;
+    // margin-right: 5rem;
+}

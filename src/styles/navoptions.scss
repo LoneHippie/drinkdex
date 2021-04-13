@@ -1,0 +1,70 @@
+@import "variables";
+
+.options-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 10rem; //fit with header height
+    padding-bottom: 12rem; //fit with navbar height
+    background: $color-black;
+
+    animation: slideIn 400ms ease-out;
+
+    z-index: 500;
+
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     height: 100vh;
+    //     width: 100vw;
+    //     background: linear-gradient(to bottom right,
+    //         rgba($color-primary, 0.075),
+    //         rgba($color-primary, 0.01),
+    //         transparent
+    //     );
+    // }
+
+    &__list {
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+        font-size: 5.2rem;
+
+        z-index: 1000;
+
+        & > li {
+            font-family: $font-primary;
+            text-transform: capitalize;
+            padding: 1.5rem 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to bottom left,
+                rgba($color-primary, 0.4),
+                rgba($color-primary, 0.05),
+                transparent
+            );
+            border-radius: 5px;
+            border: 2px solid $color-primary;
+
+            box-shadow: 0px 0px 18px 3px rgba($color-primary-light, 0.4);
+        }
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(80rem);
+    }
+    100% {
+        transform: translate(0);
+    }
+}

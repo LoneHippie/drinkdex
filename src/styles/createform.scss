@@ -1,0 +1,364 @@
+@import "variables";
+@import "mixins";
+
+.create {
+    position: fixed;
+    background: rgba($color-primary, 0.6);
+    width: 90%;
+    height: 73%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    border: 2px solid rgba($color-text, 0.6);
+    box-shadow: 0px 0px 25px 2px $color-primary;
+    backface-visibility: hidden;
+
+    z-index: 500;
+
+    &--head-title {
+        font-size: 6rem;
+        margin-left: 3rem;
+        font-weight: 500;
+    }
+
+    &--title {
+        font-size: 4.5rem;
+        color: white;
+        margin-bottom: 2rem;
+        font-weight: 500;
+    }
+
+    &--close {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 3rem;
+        font-weight: 700;
+        padding: 1.5rem;
+    }
+
+    &--message {
+        font-size: 2.2rem;
+        color: rgba($color-text, 0.8);
+        margin-top: 1rem;
+    }
+
+    &__container {
+        position: relative;
+        height: 76%;
+        width: 85%;
+        left: 50%;
+        top: 38%;
+        transform: translate(-50%, -50%);
+        padding-left: 3rem;
+        border-radius: 8px;
+        background: linear-gradient(to bottom right,
+            rgba($color-text, 0.075),
+            rgba($color-text, 0.01),
+            transparent
+        );
+
+        overflow-y: scroll;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    @include form-input;
+    @include form-label;
+
+    &--search-input {
+        width: 75%;
+        padding: 0.7rem;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: rgba($color-black, 0.8);
+        border-radius: 4px;
+        border: none;
+
+        &:focus {
+            outline: none;
+            border-radius: 4px 4px 0 0;
+            border-left: 0.8rem solid $color-primary-light;
+            border-right: 0.8rem solid $color-primary-light;
+        }
+    }
+
+    &__search {
+        margin-left: 0;
+        padding-top: 0.5rem;
+        width: 74.84%;
+        list-style: none;
+        background: $color-primary-light;
+        max-height: 12.5rem;
+        transform: translateY(-0.2rem);
+        margin-bottom: 1.25rem;
+
+        border-radius: 0 0 4px 4px;
+
+        overflow-y: scroll;
+    }
+
+    &__ta-container {
+        font-family: $font-secondary;
+        font-weight: 700;
+        font-size: 2.5rem;
+        width: 75%;
+
+        & > textarea {
+            font-family: inherit;
+            font-weight: inherit;
+            font-size: inherit;
+            padding: 0.7rem;
+            padding-right: 2.4rem;
+            color: rgba($color-black, 0.8);
+            width: 100%;
+            border-radius: 4px;
+            border: none;
+            border-bottom: 3px solid transparent;
+
+            resize: none;
+
+            transition: all 300ms;
+
+            &:focus {
+                outline: none;
+                border-bottom: 0.65rem solid $color-primary-light;
+                box-shadow: 0rem 1rem 2rem rgba($color-black, 0.1);
+            }
+
+            &:focus:invalid {
+                border-bottom: 0.65rem solid $color-secondary;
+            }
+
+            &::-webkit-input-placeholder {
+                color: rgba($color-black, 0.6);
+                font-weight: 600;
+            }
+        }
+
+        & > label {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: rgba($color-text, 0.8);
+    
+            transition: all 300ms;
+        }
+    
+        & > textarea:placeholder-shown + #summary-label {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-3rem);
+    
+            transition: all 20ms;
+        }
+    }
+
+    &__result {
+        width: 100%;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+
+        & > img {
+            height: 2.85rem;
+            padding: 0 0.5rem;
+        }
+
+        & > li {
+            line-height: 3.5rem;
+        }
+    }
+
+    &__ing-container {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-between;
+        grid-auto-flow: row;
+        grid-gap: 1rem;
+        width: 75%;
+        padding: 0.75rem;
+        background: linear-gradient(to bottom right,
+            rgba($color-primary-light, 0.9),
+            rgba($color-primary-light, 0.7),
+            rgba($color-primary-light, 0.2)
+        );
+        border-radius: 8px;
+        overflow-y: scroll;
+
+        &--ing {
+            display: inline-block;
+            text-transform: capitalize;
+            font-size: 2.3rem;
+            font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            min-width: 10rem;
+            max-width: 15rem;
+            min-height: 3.4rem;
+            background: $color-text;
+            color: $color-primary;
+            border-radius: 10px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+    }
+
+    &__instruction {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 89%;
+        margin-bottom: 0.5rem;
+        font-weight: 800;
+        font-family: $font-secondary;
+
+        & > textarea {
+            font-family: inherit;
+            font-weight: 600 !important;
+            font-size: 2.5rem;
+            padding: 0.7rem;
+            padding-right: 2.4rem;
+            margin-bottom: 0.5rem;
+            color: rgba($color-black, 0.8);
+            width: 85%;
+            border-radius: 4px;
+            border: none;
+            border-bottom: 3px solid transparent;
+
+            resize: none;
+
+            transition: all 300ms;
+
+            &:focus {
+                outline: none;
+                border-bottom: 0.65rem solid $color-primary-light;
+                box-shadow: 0rem 1rem 2rem rgba($color-black, 0.1);
+            }
+
+            &:focus:invalid {
+                border-bottom: 0.65rem solid $color-secondary;
+            }
+
+            &::-webkit-input-placeholder {
+                color: rgba($color-black, 0.6);
+                font-weight: 600;
+            }
+        }
+
+        & > img {
+            display: inline-block;
+            width: 12%;
+            margin-top: 6rem;
+            font-size: 4rem;
+        }
+
+        & > span {
+            position: absolute;
+            right: 24%;
+            color: rgba($color-black, 0.8);
+            font-size: 3rem;
+            font-weight: 600;
+        }
+    }
+
+    @import "createform-categories";
+
+    &--upload-container {
+        display: flex;
+        flex-direction: row;
+        width: 88%;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    &--url {
+        width: 80%;
+        padding: 0.7rem;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: rgba($color-black, 0.8);
+        border: none;
+        border-bottom: 0.65rem solid $color-primary-light;
+
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+
+        transition: all 300ms;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::-webkit-input-placeholder {
+            color: rgba($color-black, 0.6);
+            font-weight: 700;
+        }
+    }
+
+    &--upload::-webkit-file-upload-button {
+        visibility: hidden
+    }
+
+    &--upload {
+        width: 0%;
+        margin-top: -2.7rem;
+        visibility: hidden;
+    }
+
+    &--upload-icon {
+        height: 3.7rem;
+        margin-top: -0.8rem;
+    }
+
+    &--upload-label {
+        width: 20%;
+        display: inline-block;
+        background: $color-primary-light;
+        color: $color-text;
+        padding: 1rem;
+        height: 5rem;
+        text-align: center;
+    }
+
+    &--file-chosen {
+        display: inline;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 0.5rem;
+        font-size: 2.5rem;
+        color: rgba($color-text, 0.8);
+        max-width: 75%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        transition: all 300ms;
+    }
+
+    &--btn {
+        @include button;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-left: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    &--auth-message {
+        margin-left: 3.2rem;
+        font-size: 2.4rem;
+        color: $color-text;
+    }
+}

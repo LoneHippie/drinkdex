@@ -1,0 +1,204 @@
+@import "variables";
+
+.loading {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom right,
+        rgba($color-primary-light, 0.4),
+        rgba($color-primary-light, 0.05),
+        rgba($color-primary-light, 0.05),
+        transparent,
+        rgba($color-primary-light, 0.05),
+        rgba($color-primary-light, 0.05),
+        rgba($color-primary-light, 0.4)
+    );
+
+    backface-visibility: hidden;
+}
+
+.sign-container {
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
+    text-align: center;
+    padding: 2rem;
+    padding-top: 10rem;
+
+    width: 87.5%;
+    height: 90%;
+
+    background: rgba($color-black, 0.9);
+
+    border-radius: 10px;
+    border: 2px solid rgba($color-primary, 0.8);
+    box-shadow: 0px 0px 20px 3px $color-primary;
+
+    overflow: hidden;
+    backface-visibility: hidden;
+
+    animation: fadeIn 500ms ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+
+    z-index: 50;
+
+    &--text {
+        font-size: 10rem;
+        font-family: $font-cursive;
+        font-weight: 700;
+        letter-spacing: 1rem;
+        text-align: center;
+
+        filter: drop-shadow(0px 0px 12px $color-primary);
+        -webkit-text-stroke: 0.2px $color-primary;
+    }
+
+    & > div {
+        position: absolute;
+        bottom: 0;
+        width: 90%;
+    }
+
+    &--image {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 10rem;
+        height: 20rem;
+
+        filter: drop-shadow(0px 0px 8px $color-primary);
+
+        animation: shake 800ms infinite;
+    }
+}
+
+.loader {
+    position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+
+    text-align: center;
+    font-size: 1.5rem;
+    text-indent: -9999em;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    background: $color-primary;
+    background: -moz-linear-gradient(left, $color-primary 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, $color-primary 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, $color-primary 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, $color-primary 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, $color-primary 10%, rgba(255, 255, 255, 0) 42%);
+    -webkit-animation: load3 1.4s infinite linear;
+    animation: load3 1.4s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+
+    z-index: 50;
+
+    &::before {
+        width: 50%;
+        height: 50%;
+        background: linear-gradient(to left,
+            $color-primary-light,
+            $color-primary-light,
+            rgba($color-primary-light, 0.35),
+            $color-primary
+        );
+        border-radius: 100% 0 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+
+        animation: fadeLoader 400ms;
+    }
+
+    &::after {
+        background: $color-black;
+        width: 75%;
+        height: 75%;
+        border-radius: 50%;
+        content: '';
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(12deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@-webkit-keyframes load3 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes load3 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        height: 1%;
+        box-shadow: 0px 0px 12px 1px rgba($color-primary, 0.2);
+    }
+    50% {
+        box-shadow: 0px 0px 40px 20px $color-primary;
+    }
+    100% {
+        opacity: 1;
+        height: 90%;
+        box-shadow: 0px 0px 20px 3px $color-primary;
+    }
+}
+
+@keyframes dropIn {
+    0% {
+        opacity: 0.5;
+        transform: translateY(-20rem);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

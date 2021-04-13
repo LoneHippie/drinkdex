@@ -1,0 +1,50 @@
+@import "variables";
+
+.create__categories {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    grid-auto-flow: row;
+    grid-gap: 1.25rem;
+    width: 75%;
+    padding: 0.75rem;
+
+    margin-bottom: 1rem;
+
+    input[type=checkbox] {
+        transform: scale(2.5);
+    }
+
+    &__checkbox {
+        position: absolute;
+        display: block;
+        left: 46.25%;
+        top: 10%;
+        transform: translate(-50%, -50%);
+
+        opacity: 0;
+        z-index: 100;
+        cursor: pointer;
+    }
+}
+
+.check-el {
+    align-content: center;
+    justify-content: center;
+    width: 12rem;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    & > label {
+        display: block;
+        padding: 0.5rem 1rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: $color-text;
+        color: $color-primary;
+        text-transform: capitalize;
+
+        transition: all 300ms;
+    }
+}

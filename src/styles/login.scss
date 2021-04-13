@@ -1,0 +1,194 @@
+@import "variables";
+@import "mixins";
+
+.authenticate {
+    display: none;
+    position: fixed;
+    background: rgba($color-primary, 0.6);
+    width: 90%;
+    height: 60%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    border: 2px solid rgba($color-text, 0.6);
+    box-shadow: 0px 0px 25px 2px $color-primary;
+    overflow: hidden;
+
+    transition: all 200ms ease-out;
+
+    animation: popUpForm 400ms ease-in-out;
+
+    z-index: 5000;
+
+    &--title {
+        font-size: 6rem;
+        color: white;
+        margin-bottom: 2rem;
+    }
+
+    &--close {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 3rem;
+        font-weight: 600;
+        padding: 1.5rem;
+    }
+
+    &--message {
+        font-size: 2.2rem;
+        color: rgba($color-text, 0.8);
+        margin-top: 1rem;
+    }
+
+    &__form {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 75%;
+        width: 85%;
+        padding-left: 3rem;
+        border-radius: 8px;
+        background: linear-gradient(to bottom right,
+            rgba($color-text, 0.075),
+            rgba($color-text, 0.01),
+            transparent
+        );
+
+        &--input {
+            width: 75%;
+            padding: 0.7rem;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: rgba($color-black, 0.8);
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            border: none;
+            border-bottom: 3px solid transparent;
+
+            transition: all 300ms;
+
+            &:focus {
+                outline: none;
+                border-bottom: 0.65rem solid $color-primary-light;
+                box-shadow: 0rem 1rem 2rem rgba($color-black, 0.1);
+            }
+
+            &:focus:invalid {
+                border-bottom: 0.65rem solid $color-secondary;
+            }
+    
+            &::-webkit-input-placeholder {
+                color: rgba($color-black, 0.6);
+                font-weight: 600;
+            }
+        }
+
+        &--label {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: rgba($color-text, 0.8);
+
+            transition: all 300ms;
+        }
+
+        &--input:placeholder-shown + &--label {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-4rem);
+
+            transition: all 10ms;
+        }
+
+        &--btn {
+            @include button;
+
+            margin-top: 2rem;
+        }
+    }
+}
+
+.authenticate-form-blur {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    // background: rgba($color-black, 0.6);
+    background: $color-black;
+
+    z-index: 4000;
+}
+
+.switch {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+}
+
+.switch-title {
+    font-size: 2.5rem;
+    margin-left: 4.5rem;
+    display: inline-block;
+    padding-top: 3rem;
+}
+
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+.switch-label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 15rem;
+	height: 4rem;
+	background: rgba($color-black, 0.2);
+	display: block;
+	border-radius: 100px;
+	position: relative;
+    margin-bottom: -6.5rem;
+}
+
+.switch-label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 2.8rem;
+	height: 2.8rem;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+input:checked + .switch-label {
+	background: rgba($color-primary, 0.4);
+}
+
+input:checked + .switch-label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+.switch-label:active:after {
+	width: 8rem;
+}
+
+@keyframes popUpForm {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
