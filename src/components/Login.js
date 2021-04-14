@@ -23,6 +23,7 @@ const Login = () => {
         try {
             let result = await fetch('https://drinkdex.herokuapp.com/api/v1/users/login', {
                 method: 'post',
+                credentials: 'same-origin',
                 headers: {
                     'Accept': 'application/json',
                     'Content-type': 'application/json'
