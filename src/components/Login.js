@@ -35,6 +35,8 @@ const Login = () => {
 
             const response = await result.json();
 
+            console.log(response);
+
             if (response.status === 'fail') {
                 return setAuthMessage(`*Email or password is incorrect`);
             } else {
@@ -42,7 +44,7 @@ const Login = () => {
             }
 
             //reset window
-            window.location.reload();
+            // window.location.reload();
 
         } catch (err) {
             console.log(err);
