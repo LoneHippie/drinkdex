@@ -37,6 +37,7 @@ const SignUp = () => {
 
             let result = await fetch('https://drinkdex.herokuapp.com/api/v1/users/signup', {
                 method: 'post',
+                credentials: 'same-origin',
                 headers: {
                     'Accept': 'application/json',
                     'Content-type': 'application/json'
@@ -51,6 +52,8 @@ const SignUp = () => {
 
             const response = await result.json();
 
+            console.log(response);
+
             if (response.status === 'error') {
                 console.log('Sign up failed, please check info');
                 return;
@@ -59,7 +62,7 @@ const SignUp = () => {
             }
 
             //reset window
-            window.location.reload();
+            // window.location.reload();
 
         } catch (err) {
             console.log(err);
