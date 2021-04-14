@@ -28,7 +28,12 @@ const App = () => {
     //on load check for valid jwt and retrieve user data
     useEffect(() => {
         fetch('https://drinkdex.herokuapp.com/api/v1/users/me', {
-            credentials: 'same-origin'
+            method: 'get',
+            credentials: 'same-origin',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            }
         })
             .then(res => res.ok ? res.json() : res)
             .then(resJson => {
