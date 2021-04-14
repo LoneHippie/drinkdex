@@ -32,6 +32,7 @@ const App = () => {
         })
             .then(res => res.ok ? res.json() : res)
             .then(resJson => {
+                console.log(resJson);
                 if (resJson.status === 'success') {
                     setUser(resJson.data.data);
                 } else {
